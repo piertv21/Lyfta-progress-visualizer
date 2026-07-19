@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyfta - Andamento Carichi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>📈 Andamento Carichi</h1>
+      <p class="subtitle">Carica il file esportato da Lyfta e visualizza l'andamento del carico per ogni esercizio</p>
+    </header>
+
+    <section id="upload-section" class="card">
+      <label for="fileInput" class="file-drop" id="fileDrop">
+        <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" hidden>
+        <span id="fileDropText">📂 Trascina qui il file oppure clicca per selezionarlo <br><small>(.csv o .xlsx esportato da Lyfta)</small></span>
+      </label>
+      <p id="fileStatus" class="status"></p>
+    </section>
+
+    <section id="controls-section" class="card hidden">
+      <label for="exerciseSearch">Esercizio</label>
+      <div class="search-wrap">
+        <input type="text" id="exerciseSearch" placeholder="Cerca un esercizio..." autocomplete="off">
+        <div id="exerciseDropdown" class="dropdown hidden"></div>
+      </div>
+
+      <div class="options">
+        <label class="checkbox">
+          <input type="checkbox" id="warmupToggle">
+          Includi le serie di riscaldamento (WARMUP_SET)
+        </label>
+      </div>
+    </section>
+
+    <section id="stats-section" class="stats hidden"></section>
+
+    <section id="chart-section" class="card hidden">
+      <div class="chart-toolbar">
+        <p class="chart-hint">💡 Clicca sulla legenda per mostrare/nascondere una serie · scorri con la rotella per zoomare in orizzontale · trascina per spostarti</p>
+        <button id="resetZoomBtn" class="reset-zoom-btn" type="button">↺ Reset zoom</button>
+      </div>
+      <div class="chart-canvas-wrap">
+        <canvas id="loadChart"></canvas>
+      </div>
+    </section>
+
+    <section id="empty-state" class="card empty-state">
+      <p>Nessun dato ancora caricato. Carica il file per iniziare.</p>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
