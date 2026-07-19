@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Node (in case tooling is ever added later)
+node_modules/
+
+# Env / secrets
+.env
+.env.local
+
+# Local test/sample data (avoid committing personal workout exports)
+*.csv
+*.xlsx
+*.xls
+!sample-data/**
+
+# Build/output (if any bundler is introduced later)
+dist/
+build/
