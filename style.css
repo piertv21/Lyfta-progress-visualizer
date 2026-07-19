@@ -23,7 +23,10 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 32px 20px 80px;
+  padding: 32px 20px 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header { margin-bottom: 24px; }
@@ -227,5 +230,17 @@ h1 {
 
 .empty-state {
   text-align: center;
+  color: var(--text-dim);
+}
+
+.site-footer {
+  margin-top: auto;
+  padding-top: 32px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.8rem;
   color: var(--text-dim);
 }

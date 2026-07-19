@@ -44,7 +44,10 @@ let chartInstance = null;
 
 // ---------- File handling ----------
 
-fileDrop.addEventListener('click', () => fileInput.click());
+// The <label for="fileInput"> already opens the native file picker on click
+// (both via the "for" attribute and by wrapping the input) - adding a
+// manual fileInput.click() handler here double-triggers the picker on
+// iOS Safari, which discards the selected file. So we don't add one.
 
 fileDrop.addEventListener('dragover', (e) => {
   e.preventDefault();
