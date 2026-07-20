@@ -372,7 +372,7 @@ function drawChart(exerciseName, allSetsData, topSetData) {
           display: true,
           text: exerciseName,
           color: '#e8eaed',
-          font: { size: 16, weight: '600' },
+          font: { size: 16, weight: '600', family: "'Montserrat', sans-serif" },
         },
         legend: {
           labels: {
@@ -382,7 +382,7 @@ function drawChart(exerciseName, allSetsData, topSetData) {
             boxWidth: 9,
             boxHeight: 9,
             padding: 18,
-            font: { size: 12.5 },
+            font: { size: 12.5, family: "'Montserrat', sans-serif" },
           },
           onHover: (event) => { event.native.target.style.cursor = 'pointer'; },
           onLeave: (event) => { event.native.target.style.cursor = 'default'; },
@@ -402,6 +402,8 @@ function drawChart(exerciseName, allSetsData, topSetData) {
           },
         },
         tooltip: {
+          titleFont: { family: "'Montserrat', sans-serif" },
+          bodyFont: { family: "'Montserrat', sans-serif" },
           filter: (item, index, array) => {
             // When the top set of a session is also plotted as an individual
             // set, both points land on the exact same x/y and both show up
@@ -439,15 +441,16 @@ function drawChart(exerciseName, allSetsData, topSetData) {
           type: 'linear',
           ticks: {
             color: '#9aa0ab',
+            font: { family: "'Montserrat', sans-serif" },
             callback: (value) => new Date(value).toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: '2-digit' }),
           },
           grid: { color: '#262a33' },
-          title: { display: true, text: 'Data', color: '#9aa0ab' },
+          title: { display: true, text: 'Data', color: '#9aa0ab', font: { family: "'Montserrat', sans-serif" } },
         },
         y: {
-          ticks: { color: '#9aa0ab' },
+          ticks: { color: '#9aa0ab', font: { family: "'Montserrat', sans-serif" } },
           grid: { color: '#262a33' },
-          title: { display: true, text: 'Peso (kg)', color: '#9aa0ab' },
+          title: { display: true, text: 'Peso (kg)', color: '#9aa0ab', font: { family: "'Montserrat', sans-serif" } },
         },
       },
     },
