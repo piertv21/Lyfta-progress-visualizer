@@ -402,6 +402,19 @@ function drawChart(exerciseName, allSetsData, topSetData) {
           },
         },
         tooltip: {
+          filter: (item, index, array) => {
+            // When the top set of a session is also plotted as an individual
+            // set, both points land on the exact same x/y and both show up
+            // in the tooltip. Keep only the "top set" (green) entry then.
+            if (item.dataset.label !== 'Tutte le serie') return true;
+            const isDuplicateOfTopSet = array.some((other) =>
+              other !== item &&
+              other.dataset.label === 'Carico massimo per sessione' &&
+              other.parsed.x === item.parsed.x &&
+              other.parsed.y === item.parsed.y
+            );
+            return !isDuplicateOfTopSet;
+          },
           callbacks: {
             title: (items) => {
               const raw = items[0].raw;
